@@ -1,40 +1,48 @@
 #include <Python.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
 
-/* Docstrings */
-static char module_docstring[] =
-    "This module provides some basic utilities required for training, evaluating and using a YOLO model in C.";
-static char hello_world_docstring[] =
-    "Calculate the factorial of some given number";
+// Python functions
 
-/* Available functions */
-static PyObject *hello_world(PyObject *self, PyObject *args);
-
-/* Module specification */
-static PyMethodDef module_methods[] = {
-    {"hello_world", hello_world, METH_VARARGS, hello_world_docstring},
-    {NULL, NULL, 0, NULL}
-};
-
-/* Initialize the module */
-PyMODINIT_FUNC inityolo_utils(void)
+static PyObject* _n_max(PyObject* self)
 {
-  PyObject *m = Py_InitModule3("yolo_utils", module_methods, module_docstring);
-  if (m == NULL)
-    return;
-
+  return PyUnicode_FromString("KEY KEY KEY!");
 }
 
-static PyObject *hello_world(PyObject *self, PyObject *args)
+static PyObject* _iou(PyObject* self, PyObject* args)
 {
-  int n;
+  PyObject* private;
+  if(!PyArg_ParseTuple(args, "U", &private)) return NULL;
 
-  /* Parse the input tuple */
-  if (!PyArg_ParseTuple(args, "i", &n))
-    return NULL;
+  return PyUnicode_FromString("IOU");
+}
 
-  int value = n+2;
+// Init function
 
-  /* Build the output tuple */
-  PyObject *ret = Py_BuildValue("i", value);
-  return ret;
+void init()
+{
+  // nothing
+}
+
+// Method definition
+static struct PyMethodDef methods[] = {
+    {"iou", (PyCFunction)_iou, METH_VARARGS},
+    {"n_max", (PyCFunction)_n_max, METH_VARARGS},
+    {NULL, NULL, NULL}
+};
+
+// Module definition
+static struct PyModuleDef module = {
+    PyModuleDef_HEAD_INIT,
+    "yolo_utils",
+    NULL,
+    -1,
+    methods
+};
+
+// Initialize module
+PyMODINIT_FUNC PyInit_yolo_utils(void) {
+  init();
+  return PyModule_Create(&module);
 }

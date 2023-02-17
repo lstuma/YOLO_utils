@@ -1,10 +1,10 @@
 import unittest, os, sys
-import iou_utils
+import yolo_utils
 
 class TestStringMethods(unittest.TestCase):
     def test_iou(self):
         # Import IoU calc function
-        from iou_utils import iou
+        from yolo_utils import iou
 
         print("\n[Test] Testing IoU calculation")
 
@@ -45,7 +45,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_nmax(self):
         # Import nmax suppression calc function
-        from iou_utils import nmax
+        from yolo_utils import nmax
 
         print("\n[Test] Testing nmax suppression")
 
