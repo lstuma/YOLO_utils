@@ -19,8 +19,7 @@ double calc_iou(double* box1, double* box2)
 
 	// Calculate IoU
 	double iou_dim[2] = {0, 0};
-    printf("\nIOU TESTO");
-	for(int i=0; i < 2; i++) {
+    for(int i=0; i < 2; i++) {
 		int j = i+2;
 
 		// Check cases

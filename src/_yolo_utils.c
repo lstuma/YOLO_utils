@@ -30,8 +30,8 @@ static PyObject* _iou(PyObject* self, PyObject* args)
   double box1[4] = {0,0,0,0}; double box2[4] = {0,0,0,0};
 
   for(int i = 0; i < 4; i++) {
-    box1[i] = PyLong_AsLong(PyList_GetItem(_box1, i));
-    box2[i] = PyLong_AsLong(PyList_GetItem(_box2, i));
+    box1[i] = PyFloat_AsDouble(PyList_GetItem(_box1, i));
+    box2[i] = PyFloat_AsDouble(PyList_GetItem(_box2, i));
   }
 
   double result = calc_iou(box1, box2);

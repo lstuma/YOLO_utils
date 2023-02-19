@@ -32,8 +32,7 @@ class TestStringMethods(unittest.TestCase):
         # Box2 inside box1
         box1 = [2, 2, 7, 5]
         box2 = [2.5, 2.5, 1, 2]
-        try: outcome = iou(box1, box2)
-        except Exception as e: print(e);
+        outcome = iou(box1, box2)
         print("Case 3: Expected outcome: 2,\tOutcome: ", outcome)
         if outcome != 2: self.fail("Case 3: Failed due to unexpected outcome")
 
