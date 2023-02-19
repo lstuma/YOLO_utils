@@ -1,0 +1,22 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "yolo_utils"
+version = "0.1"
+description = "Extension providing some basic utilities required for training, evaluating and using a YOLO model in C."
+readme = "README.md"
+license = {file = "LICENSE" }
+authors = [{name = "Lukas Stockmann", gitHub = "https://github.com/lstuma"}]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: C",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["YOLO", "IOU"]
+requires-python = ">=3.5"
+
+[project.urls]
+gitHub = "https://github.com/lstuma/yolo_utils"
